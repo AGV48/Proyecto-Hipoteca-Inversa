@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./Hipoteca-Inversa/src",
+    ]
+}

@@ -1,5 +1,6 @@
 # Se importa el modulo donde se realizarán los procesos
-from Logica import *
+import Logic.Hipoteca_Inversa_Calculator as Calcular_Hipoteca_Inversa
+from Logic.Hipoteca_Inversa_Calculator import *
 
 # Se le da una bienvenida al usuario y se le muestra un menú con las opciones
 def Bienvenida():
@@ -34,26 +35,37 @@ def desiciones(opcion):
                 valor_inmueble = float(input("Por favor ingrese el valor de la vivienda: "))
                 edad = int(input("Por favor ingrese su edad actual: "))
                 estado_civil = input("Por favor ingrese su estado civil: ")
+                estado_civil = estado_civil.lower()
+                if estado_civil == "casado" or estado_civil == "casada":
+                    edad_conyugue = int(input("Por favor ingrese la edad de su conyugue: "))
+                    sexo_conyugue = input("Por favor ingrese el genero de su conyugue: ")
+                else:
+                    edad_conyugue = 0
+                    sexo_conyugue = ""
                 tasa_interes = float(input("Ingrese la tasa de interes: "))
                 print("-------------------------------------------------------------------------")
-                # Se calcula el tiempo restante de la persona en meses, teniendo en cuenta que la esperanza de vida son 80 años
-                tiempo_restante = (80 - edad) * 12
 
                 # Se calcula el valor de cada cuota de la hipoteca inversa
-                resultado = Calcular_Cuota_Mensual(valor_inmueble, tasa_interes, tiempo_restante)
-                # Se muestra el resultado
+                resultado = Calcular_Hipoteca_Inversa.Logica_test(valor_inmueble, edad, estado_civil, edad_conyugue, sexo_conyugue, tasa_interes)
+                # Se muestra el resultado redondeado
                 print(f"El valor de cada cuota de la hipoteca inversa es de: {round(resultado,2)}")
-                return
+                break
         # Se le da al usuario un mensaje de despedida al usuario cuando finaliza todo el proceso
         print("------------------------------------------------------------------")
         print("                  EL BANCO MAS LADRÓN            ")
         print("Gracias por visitarnos, vuelva pronto")
         print("-------------------------------------------------------------------")
     # Se lanza un mensaje de error cuando algo falla
-    except:
+    except ValueError:
         print("------------------------------------------------------------------")
         print("                  EL BANCO MAS LADRÓN            ")
-        print("Hubo un error, intentalo nuevamente")
+        print("Hubo un ERROR, revisa que los datos ingresados sean correctos")
+        print("-------------------------------------------------------------------")
+        Bienvenida()
+    except Exception as exc:
+        print("------------------------------------------------------------------")
+        print("                  EL BANCO MAS LADRÓN            ")
+        print(f"Hubo un {exc}, intentalo nuevamente")
         print("-------------------------------------------------------------------")
         Bienvenida()
 
