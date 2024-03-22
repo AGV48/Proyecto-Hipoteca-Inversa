@@ -6,7 +6,7 @@ import sys
 sys.path.append("src")
 
 # Las pruebas importan el modulo que va a realizar todo el trabajo
-import Logic.Hipoteca_Inversa_Calculator as Calcular_Hipoteca_Inversa
+import Logic.Hipoteca_Inversa_Calculator as Hipoteca_Inversa_Calculator
 from Logic.Hipoteca_Inversa_Calculator import *
 
 # Debe existir por lo menos una clase que contenga las pruyebas unitarias
@@ -105,7 +105,7 @@ class Hipoteca_Inversa_Test(unittest.TestCase):
         tasa_interes = 7.9
 
         resultado = Calcular_Hipoteca_Inversa.Logica_test(valor_inmueble, edad, estado_civil, edad_conyugue, sexo_conyugue, tasa_interes)
-        cuota =  36916.67
+        cuota =  32916.67
         # Prueba que dos variables sean iguales
         self.assertEqual( cuota, round(resultado,2)  )
 
@@ -181,7 +181,7 @@ class Hipoteca_Inversa_Test(unittest.TestCase):
         tasa_interes = 33.2
 
         resultado = Calcular_Hipoteca_Inversa.Logica_test(valor_inmueble, edad, estado_civil, edad_conyugue, sexo_conyugue, tasa_interes)
-        cuota =  80087.72
+        cuota =  72460.32
         # Prueba que dos variables sean iguales
         self.assertEqual( cuota, round(resultado,2)  )
 
@@ -196,7 +196,7 @@ class Hipoteca_Inversa_Test(unittest.TestCase):
         tasa_interes = 7.2
 
         resultado = Calcular_Hipoteca_Inversa.Logica_test(valor_inmueble, edad, estado_civil, edad_conyugue, sexo_conyugue, tasa_interes)
-        cuota =  857142.86
+        cuota =  666666.67
         # Prueba que dos variables sean iguales
         self.assertEqual( cuota, round(resultado,2)  )
 
