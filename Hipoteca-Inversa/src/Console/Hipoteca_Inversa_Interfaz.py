@@ -1,4 +1,8 @@
-# Se importa el modulo donde se realizarán los procesos
+# Lo importamos para poder incluir la ruta de busqueda python
+import sys
+sys.path.append("src")
+
+# Las pruebas importan el modulo que va a realizar todo el trabajo
 import Logic.Hipoteca_Inversa_Calculator as Calcular_Hipoteca_Inversa
 from Logic.Hipoteca_Inversa_Calculator import *
 
